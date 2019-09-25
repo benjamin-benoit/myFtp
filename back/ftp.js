@@ -37,7 +37,6 @@ class FtpServer extends Server {
 
                 data = data.trim();
                 let [cmd, ...args] = data.split(' ');
-                console.log(cmd, args)
                 cmd = cmd.toLowerCase();
 
                 if((!socket.session || !socket.session.isConnected) && !isAllowedCommand(cmd)){
@@ -145,14 +144,6 @@ class FtpServer extends Server {
     }
 
     stor(socket, filename){
-        const tmp_port = 4545
-        let temp_server = super().create(tmp_port, (tmp_socket) => {
-            const writer = fs.createWriteStream(filename)
-            tmp_socket.on('data', (data) => {
-                //TODO finish this
-                writer.on('ready', )
-            })
-        });
 
     }
 
